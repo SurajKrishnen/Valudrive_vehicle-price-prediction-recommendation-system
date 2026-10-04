@@ -1,0 +1,4593 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        ValuDrive | Intelligent Vehicle Valuation
+    </title>
+
+
+    <style>
+
+        /* ==========================================================
+           GLOBAL
+        ========================================================== */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+
+        :root {
+
+            --navy: #07111f;
+            --navy-2: #0e1b2f;
+
+            --blue: #2563eb;
+            --blue-dark: #1d4ed8;
+            --cyan: #38bdf8;
+
+            --text: #0f172a;
+            --muted: #64748b;
+
+            --border: #e2e8f0;
+
+            --background: #f6f8fc;
+
+            --white: #ffffff;
+
+            --green: #16a34a;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+
+            font-family:
+                Inter,
+                Arial,
+                Helvetica,
+                sans-serif;
+
+            background:
+                var(--background);
+
+            color:
+                var(--text);
+
+            line-height: 1.5;
+        }
+
+
+        button,
+        input,
+        select {
+
+            font: inherit;
+
+        }
+
+
+        button {
+            cursor: pointer;
+        }
+
+
+
+        /* ==========================================================
+           NAVBAR
+        ========================================================== */
+
+        .navbar {
+
+            min-height: 72px;
+
+            padding:
+                0 6%;
+
+            background:
+                rgba(
+                    7,
+                    17,
+                    31,
+                    0.97
+                );
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            position:
+                sticky;
+
+            top:
+                0;
+
+            z-index:
+                1000;
+
+            box-shadow:
+                0 4px 20px
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                );
+        }
+
+
+        .brand {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                12px;
+
+        }
+
+
+        .brand-icon {
+
+            width:
+                40px;
+
+            height:
+                40px;
+
+            border-radius:
+                12px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue),
+                    var(--cyan)
+                );
+
+            font-size:
+                20px;
+
+        }
+
+
+        .brand-name {
+
+            font-size:
+                21px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                -0.5px;
+
+        }
+
+
+        .brand-name span {
+            color:
+                #60a5fa;
+        }
+
+
+        .nav-links {
+
+            display:
+                flex;
+
+            gap:
+                30px;
+
+        }
+
+
+        .nav-links a {
+
+            color:
+                #cbd5e1;
+
+            text-decoration:
+                none;
+
+            font-size:
+                14px;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .nav-links a:hover {
+
+            color:
+                white;
+
+        }
+
+
+
+        /* ==========================================================
+           HERO
+        ========================================================== */
+
+        .hero {
+
+            min-height:
+                540px;
+
+            background:
+
+                radial-gradient(
+                    circle at 82% 20%,
+                    rgba(
+                        37,
+                        99,
+                        235,
+                        0.35
+                    ),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 12% 85%,
+                    rgba(
+                        56,
+                        189,
+                        248,
+                        0.15
+                    ),
+                    transparent 28%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #050c17,
+                    #12213a
+                );
+
+            color:
+                white;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            padding:
+                70px 7%
+                115px;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+        }
+
+
+        .hero::after {
+
+            content:
+                "";
+
+            position:
+                absolute;
+
+            width:
+                430px;
+
+            height:
+                430px;
+
+            right:
+                -100px;
+
+            bottom:
+                -190px;
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            border-radius:
+                50%;
+
+        }
+
+
+        .hero-content {
+
+            max-width:
+                780px;
+
+            position:
+                relative;
+
+            z-index:
+                2;
+
+        }
+
+
+        .hero-badge {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                8px;
+
+            padding:
+                8px 14px;
+
+            border:
+                1px solid
+                rgba(
+                    96,
+                    165,
+                    250,
+                    0.35
+                );
+
+            background:
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.12
+                );
+
+            color:
+                #93c5fd;
+
+            border-radius:
+                50px;
+
+            font-size:
+                13px;
+
+            font-weight:
+                600;
+
+            margin-bottom:
+                24px;
+
+        }
+
+
+        .hero h1 {
+
+            font-size:
+                clamp(
+                    42px,
+                    5vw,
+                    68px
+                );
+
+            line-height:
+                1.06;
+
+            letter-spacing:
+                -2px;
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .hero h1 span {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #60a5fa,
+                    #38bdf8
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+        }
+
+
+        .hero-description {
+
+            max-width:
+                660px;
+
+            color:
+                #cbd5e1;
+
+            font-size:
+                18px;
+
+            line-height:
+                1.7;
+
+            margin-bottom:
+                32px;
+
+        }
+
+
+        .hero-button {
+
+            display:
+                inline-flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+            border:
+                none;
+
+            border-radius:
+                10px;
+
+            padding:
+                15px 23px;
+
+            font-weight:
+                700;
+
+            font-size:
+                15px;
+
+            text-decoration:
+                none;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .hero-button:hover {
+
+            background:
+                var(--blue-dark);
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+
+        /* ==========================================================
+           MODEL STATISTICS
+        ========================================================== */
+
+        .stats-wrapper {
+
+            width:
+                86%;
+
+            max-width:
+                1150px;
+
+            margin:
+                -48px auto 0;
+
+            position:
+                relative;
+
+            z-index:
+                5;
+
+        }
+
+
+        .stats {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                18px;
+
+            box-shadow:
+                0 15px 40px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.10
+                );
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .stat {
+
+            padding:
+                25px 30px;
+
+            text-align:
+                center;
+
+        }
+
+
+        .stat:not(:last-child) {
+
+            border-right:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .stat-number {
+
+            font-size:
+                27px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .stat-label {
+
+            margin-top:
+                4px;
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+        }
+
+
+
+        /* ==========================================================
+           GENERAL CONTAINER
+        ========================================================== */
+
+        .container {
+
+            width:
+                88%;
+
+            max-width:
+                1150px;
+
+            margin:
+                70px auto;
+
+        }
+
+
+
+        /* ==========================================================
+           SECTION HEADINGS
+        ========================================================== */
+
+        .section-heading {
+
+            text-align:
+                center;
+
+            margin-bottom:
+                35px;
+
+        }
+
+
+        .eyebrow {
+
+            color:
+                var(--blue);
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            text-transform:
+                uppercase;
+
+            margin-bottom:
+                9px;
+
+        }
+
+
+        .section-heading h2 {
+
+            font-size:
+                34px;
+
+            letter-spacing:
+                -1px;
+
+        }
+
+
+        .section-heading p {
+
+            color:
+                var(--muted);
+
+            margin:
+                10px auto 0;
+
+            max-width:
+                650px;
+
+        }
+
+
+
+        /* ==========================================================
+           CONFIGURATOR
+        ========================================================== */
+
+        .configurator {
+
+            background:
+                white;
+
+            border-radius:
+                20px;
+
+            border:
+                1px solid
+                var(--border);
+
+            box-shadow:
+                0 18px 50px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.08
+                );
+
+            overflow:
+                hidden;
+
+        }
+
+
+
+        /* ==========================================================
+           PROGRESS
+        ========================================================== */
+
+        .progress-area {
+
+            background:
+                #fafcff;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            padding:
+                26px 40px;
+
+        }
+
+
+        .progress-steps {
+
+            max-width:
+                700px;
+
+            margin:
+                auto;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+        }
+
+
+        .progress-item {
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            gap:
+                10px;
+
+            color:
+                #94a3b8;
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .progress-circle {
+
+            width:
+                34px;
+
+            height:
+                34px;
+
+            border-radius:
+                50%;
+
+            background:
+                #e2e8f0;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            transition:
+                0.25s;
+
+        }
+
+
+        .progress-item.active {
+
+            color:
+                var(--blue);
+
+        }
+
+
+        .progress-item.active
+        .progress-circle {
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+        }
+
+
+        .progress-item.completed
+        .progress-circle {
+
+            background:
+                var(--green);
+
+            color:
+                white;
+
+        }
+
+
+        .progress-line {
+
+            flex:
+                1;
+
+            height:
+                2px;
+
+            background:
+                #e2e8f0;
+
+            margin:
+                0 16px;
+
+        }
+
+
+        .progress-line.completed {
+
+            background:
+                var(--green);
+
+        }
+
+
+
+        /* ==========================================================
+           FORM
+        ========================================================== */
+
+        .form-content {
+
+            padding:
+                45px;
+
+        }
+
+
+        .step {
+
+            display:
+                none;
+
+            animation:
+                fadeIn
+                0.25s ease;
+
+        }
+
+
+        .step.active {
+
+            display:
+                block;
+
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+
+                opacity:
+                    0;
+
+                transform:
+                    translateY(8px);
+
+            }
+
+            to {
+
+                opacity:
+                    1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        .step-heading {
+
+            margin-bottom:
+                30px;
+
+        }
+
+
+        .step-heading h3 {
+
+            font-size:
+                25px;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .step-heading p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                14px;
+
+        }
+
+
+        .form-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap:
+                22px;
+
+        }
+
+
+        .field {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+        }
+
+
+        .field label {
+
+            font-size:
+                13px;
+
+            font-weight:
+                700;
+
+            color:
+                #334155;
+
+            margin-bottom:
+                8px;
+
+        }
+
+
+        .field small {
+
+            color:
+                #94a3b8;
+
+            font-size:
+                11px;
+
+            margin-top:
+                6px;
+
+        }
+
+
+        .field input,
+        .field select {
+
+            width:
+                100%;
+
+            height:
+                49px;
+
+            padding:
+                0 14px;
+
+            border:
+                1px solid
+                #cbd5e1;
+
+            border-radius:
+                9px;
+
+            background:
+                white;
+
+            color:
+                var(--text);
+
+            outline:
+                none;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .field input:focus,
+        .field select:focus {
+
+            border-color:
+                var(--blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.10
+                );
+
+        }
+
+
+
+        /* ==========================================================
+           FORM BUTTONS
+        ========================================================== */
+
+        .form-actions {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            margin-top:
+                35px;
+
+            padding-top:
+                25px;
+
+            border-top:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .btn {
+
+            border:
+                none;
+
+            border-radius:
+                9px;
+
+            padding:
+                13px 21px;
+
+            font-size:
+                14px;
+
+            font-weight:
+                700;
+
+            transition:
+                0.2s;
+
+        }
+
+
+        .btn-secondary {
+
+            background:
+                #f1f5f9;
+
+            color:
+                #475569;
+
+        }
+
+
+        .btn-secondary:hover {
+
+            background:
+                #e2e8f0;
+
+        }
+
+
+        .btn-primary {
+
+            background:
+                var(--blue);
+
+            color:
+                white;
+
+        }
+
+
+        .btn-primary:hover {
+
+            background:
+                var(--blue-dark);
+
+            transform:
+                translateY(-1px);
+
+        }
+
+
+        .btn-predict {
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #0284c7
+                );
+
+            color:
+                white;
+
+        }
+
+
+
+        /* ==========================================================
+           ERROR
+        ========================================================== */
+
+        .error {
+
+            margin-top:
+                25px;
+
+            background:
+                #fff1f2;
+
+            border:
+                1px solid
+                #fecdd3;
+
+            color:
+                #9f1239;
+
+            border-radius:
+                10px;
+
+            padding:
+                15px 18px;
+
+        }
+
+
+
+        /* ==========================================================
+           RESULTS
+        ========================================================== */
+
+        .results {
+
+            margin-top:
+                75px;
+
+        }
+
+
+        .result-hero {
+
+            background:
+
+                radial-gradient(
+                    circle at 90% 10%,
+                    rgba(
+                        56,
+                        189,
+                        248,
+                        0.20
+                    ),
+                    transparent 25%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #0b1220,
+                    #17233a
+                );
+
+            color:
+                white;
+
+            border-radius:
+                20px;
+
+            padding:
+                40px;
+
+            box-shadow:
+                0 20px 50px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.18
+                );
+
+        }
+
+
+        .result-top {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+            gap:
+                30px;
+
+        }
+
+
+        .result-tag {
+
+            color:
+                #93c5fd;
+
+            text-transform:
+                uppercase;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.5px;
+
+            margin-bottom:
+                10px;
+
+        }
+
+
+        .result-vehicle {
+
+            font-size:
+                27px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .result-spec {
+
+            color:
+                #94a3b8;
+
+            margin-top:
+                5px;
+
+        }
+
+
+        .prediction-box {
+
+            text-align:
+                right;
+
+        }
+
+
+        .prediction-label {
+
+            color:
+                #94a3b8;
+
+            font-size:
+                12px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .prediction-price {
+
+            font-size:
+                45px;
+
+            font-weight:
+                800;
+
+            margin-top:
+                5px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #ffffff,
+                    #93c5fd
+                );
+
+            -webkit-background-clip:
+                text;
+
+            background-clip:
+                text;
+
+            color:
+                transparent;
+
+        }
+
+
+        .prediction-sub {
+
+            color:
+                #94a3b8;
+
+            font-size:
+                12px;
+
+            margin-top:
+                3px;
+
+        }
+
+
+
+        /* ==========================================================
+           MODEL INFORMATION
+        ========================================================== */
+
+        .vehicle-specs {
+
+            margin-top:
+                30px;
+
+            border-top:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.10
+                );
+
+            padding-top:
+                25px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    1fr
+                );
+
+            gap:
+                15px;
+
+        }
+
+
+        .spec-box {
+
+            background:
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.05
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.08
+                );
+
+            border-radius:
+                10px;
+
+            padding:
+                16px;
+
+        }
+
+
+        .spec-value {
+
+            font-weight:
+                700;
+
+            font-size:
+                16px;
+
+        }
+
+
+        .spec-label {
+
+            color:
+                #94a3b8;
+
+            font-size:
+                11px;
+
+            margin-top:
+                4px;
+
+        }
+
+
+
+        /* ==========================================================
+           MARKET / PRICE INSIGHT
+        ========================================================== */
+
+        .price-insight {
+
+            margin-top:
+                22px;
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                16px;
+
+            padding:
+                25px;
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1.2fr 1fr;
+
+            gap:
+                30px;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.05
+                );
+
+        }
+
+
+        .price-insight-left {
+
+            display:
+                flex;
+
+            gap:
+                17px;
+
+            align-items:
+                flex-start;
+
+        }
+
+
+        .insight-icon {
+
+            width:
+                48px;
+
+            height:
+                48px;
+
+            flex-shrink:
+                0;
+
+            border-radius:
+                12px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            background:
+                #eff6ff;
+
+            color:
+                var(--blue);
+
+            font-size:
+                21px;
+
+            font-weight:
+                800;
+
+        }
+
+
+        .insight-eyebrow {
+
+            color:
+                var(--blue);
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.3px;
+
+            margin-bottom:
+                5px;
+
+        }
+
+
+        .price-insight h3 {
+
+            font-size:
+                18px;
+
+            margin-bottom:
+                6px;
+
+        }
+
+
+        .price-insight p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            max-width:
+                430px;
+
+        }
+
+
+        .market-listings {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                8px;
+
+        }
+
+
+        .market-price {
+
+            background:
+                #f8fafc;
+
+            border-radius:
+                8px;
+
+            padding:
+                10px 13px;
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
+
+            font-size:
+                12px;
+
+        }
+
+
+        .market-price span {
+
+            color:
+                #64748b;
+
+        }
+
+
+        .market-price strong {
+
+            color:
+                #0f172a;
+
+        }
+
+
+
+        /* ==========================================================
+           RECOMMENDATION SECTIONS
+        ========================================================== */
+
+        .recommendation-section {
+
+            margin-top:
+                60px;
+
+        }
+
+
+        .recommendation-header {
+
+            margin-bottom:
+                22px;
+
+        }
+
+
+        .recommendation-header h2 {
+
+            font-size:
+                27px;
+
+            letter-spacing:
+                -0.5px;
+
+        }
+
+
+        .recommendation-header p {
+
+            color:
+                var(--muted);
+
+            margin-top:
+                5px;
+
+        }
+
+
+
+        /* ==========================================================
+           CAR GRID
+        ========================================================== */
+
+        .car-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+
+            gap:
+                20px;
+
+        }
+
+
+        .car-card {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                16px;
+
+            overflow:
+                hidden;
+
+            box-shadow:
+                0 8px 25px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.05
+                );
+
+            transition:
+                0.25s;
+
+        }
+
+
+        .car-card:hover {
+
+            transform:
+                translateY(-5px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(
+                    15,
+                    23,
+                    42,
+                    0.10
+                );
+
+        }
+
+
+
+        /* ==========================================================
+           CARD VISUAL
+        ========================================================== */
+
+        .car-card-top {
+
+            min-height:
+                125px;
+
+            background:
+
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(
+                        37,
+                        99,
+                        235,
+                        0.10
+                    ),
+                    transparent 35%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #eff6ff,
+                    #f8fafc
+                );
+
+            padding:
+                20px;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            align-items:
+                flex-start;
+
+        }
+
+
+        .vehicle-visual {
+
+            display:
+                flex;
+
+            flex-direction:
+                column;
+
+            gap:
+                2px;
+
+        }
+
+
+        .vehicle-brand-small {
+
+            color:
+                #64748b;
+
+            font-size:
+                9px;
+
+            font-weight:
+                800;
+
+            letter-spacing:
+                1.4px;
+
+        }
+
+
+        .vehicle-silhouette {
+
+            font-size:
+                35px;
+
+            line-height:
+                1.1;
+
+            margin:
+                4px 0;
+
+        }
+
+
+        .vehicle-model-small {
+
+            color:
+                #334155;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+        }
+
+
+        .match-badge {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                #bfdbfe;
+
+            color:
+                var(--blue);
+
+            border-radius:
+                30px;
+
+            padding:
+                6px 10px;
+
+            font-size:
+                11px;
+
+            font-weight:
+                800;
+
+            white-space:
+                nowrap;
+
+        }
+
+
+
+        /* ==========================================================
+           CARD BODY
+        ========================================================== */
+
+        .car-card-body {
+
+            padding:
+                20px;
+
+        }
+
+
+        .car-name {
+
+            font-weight:
+                800;
+
+            font-size:
+                17px;
+
+            min-height:
+                50px;
+
+        }
+
+
+        .car-price {
+
+            font-size:
+                22px;
+
+            font-weight:
+                800;
+
+            color:
+                var(--blue);
+
+            margin:
+                12px 0 17px;
+
+        }
+
+
+        .car-details {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                9px;
+
+            font-size:
+                12px;
+
+            color:
+                #475569;
+
+        }
+
+
+        .car-detail {
+
+            background:
+                #f8fafc;
+
+            padding:
+                8px 9px;
+
+            border-radius:
+                7px;
+
+        }
+
+
+
+        /* ==========================================================
+           MATCH SCORE
+        ========================================================== */
+
+        .match-area {
+
+            margin-top:
+                18px;
+
+            padding-top:
+                15px;
+
+            border-top:
+                1px solid
+                var(--border);
+
+        }
+
+
+        .match-label {
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            font-size:
+                11px;
+
+            font-weight:
+                700;
+
+            margin-bottom:
+                7px;
+
+        }
+
+
+        .match-track {
+
+            height:
+                7px;
+
+            background:
+                #e2e8f0;
+
+            border-radius:
+                20px;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .match-fill {
+
+            height:
+                100%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #38bdf8
+                );
+
+            border-radius:
+                20px;
+
+        }
+
+
+
+        /* ==========================================================
+           WHY THIS MATCH
+        ========================================================== */
+
+        .why-match {
+
+            margin-top:
+                16px;
+
+        }
+
+
+        .why-title {
+
+            font-size:
+                10px;
+
+            font-weight:
+                800;
+
+            color:
+                #475569;
+
+            margin-bottom:
+                9px;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                0.6px;
+
+        }
+
+
+        .reason-list {
+
+            display:
+                flex;
+
+            flex-wrap:
+                wrap;
+
+            gap:
+                6px;
+
+        }
+
+
+        .reason-chip {
+
+            background:
+                #f0fdf4;
+
+            color:
+                #166534;
+
+            border:
+                1px solid
+                #bbf7d0;
+
+            border-radius:
+                20px;
+
+            padding:
+                5px 8px;
+
+            font-size:
+                10px;
+
+            font-weight:
+                600;
+
+        }
+
+
+
+        /* ==========================================================
+           HOW IT WORKS
+        ========================================================== */
+
+        .how-section {
+
+            margin-top:
+                90px;
+
+        }
+
+
+        .how-grid {
+
+            display:
+                grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap:
+                20px;
+
+        }
+
+
+        .how-card {
+
+            background:
+                white;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius:
+                15px;
+
+            padding:
+                27px;
+
+            position:
+                relative;
+
+            overflow:
+                hidden;
+
+        }
+
+
+        .how-number {
+
+            color:
+                #dbeafe;
+
+            font-size:
+                45px;
+
+            font-weight:
+                900;
+
+            position:
+                absolute;
+
+            right:
+                20px;
+
+            top:
+                10px;
+
+        }
+
+
+        .how-icon {
+
+            width:
+                42px;
+
+            height:
+                42px;
+
+            border-radius:
+                10px;
+
+            background:
+                #eff6ff;
+
+            color:
+                var(--blue);
+
+            display:
+                flex;
+
+            align-items:
+                center;
+
+            justify-content:
+                center;
+
+            font-size:
+                19px;
+
+            margin-bottom:
+                17px;
+
+        }
+
+
+        .how-card h3 {
+
+            margin-bottom:
+                8px;
+
+            font-size:
+                17px;
+
+        }
+
+
+        .how-card p {
+
+            color:
+                var(--muted);
+
+            font-size:
+                13px;
+
+            line-height:
+                1.6;
+
+        }
+
+
+
+        /* ==========================================================
+           FOOTER
+        ========================================================== */
+
+        footer {
+
+            margin-top:
+                80px;
+
+            background:
+                var(--navy);
+
+            color:
+                #94a3b8;
+
+            padding:
+                35px 7%;
+
+            display:
+                flex;
+
+            justify-content:
+                space-between;
+
+            gap:
+                20px;
+
+            font-size:
+                12px;
+
+        }
+
+
+        .footer-brand {
+
+            color:
+                white;
+
+            font-weight:
+                700;
+
+        }
+
+
+
+        /* ==========================================================
+           RESPONSIVE
+        ========================================================== */
+
+        @media (
+            max-width: 900px
+        ) {
+
+            .nav-links {
+                display:
+                    none;
+            }
+
+
+            .car-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .how-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .vehicle-specs {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .price-insight {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+        }
+
+
+        @media (
+            max-width: 650px
+        ) {
+
+            .hero {
+
+                padding-left:
+                    6%;
+
+                padding-right:
+                    6%;
+
+            }
+
+
+            .hero h1 {
+
+                letter-spacing:
+                    -1px;
+
+            }
+
+
+            .stats-wrapper {
+
+                width:
+                    92%;
+
+            }
+
+
+            .stats {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .stat:not(:last-child) {
+
+                border-right:
+                    none;
+
+                border-bottom:
+                    1px solid
+                    var(--border);
+
+            }
+
+
+            .container {
+
+                width:
+                    92%;
+
+            }
+
+
+            .progress-area {
+
+                padding:
+                    22px 15px;
+
+            }
+
+
+            .progress-item
+            span:last-child {
+
+                display:
+                    none;
+
+            }
+
+
+            .progress-line {
+
+                margin:
+                    0 8px;
+
+            }
+
+
+            .form-content {
+
+                padding:
+                    28px 20px;
+
+            }
+
+
+            .form-grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .result-top {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .prediction-box {
+
+                text-align:
+                    left;
+
+            }
+
+
+            .prediction-price {
+
+                font-size:
+                    38px;
+
+            }
+
+
+            .vehicle-specs {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .price-insight-left {
+
+                flex-direction:
+                    column;
+
+            }
+
+
+            .market-price {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap:
+                    3px;
+
+            }
+
+
+            footer {
+
+                flex-direction:
+                    column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+
+<body>
+
+
+<!-- ==============================================================
+     NAVIGATION
+============================================================== -->
+
+<nav class="navbar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            ◈
+        </div>
+
+        <div class="brand-name">
+            Valu<span>Drive</span>
+        </div>
+
+    </div>
+
+
+    <div class="nav-links">
+
+        <a href="#valuation">
+            Price Predictor
+        </a>
+
+        <a href="#recommendations">
+            Recommendations
+        </a>
+
+        <a href="#how-it-works">
+            How It Works
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- ==============================================================
+     HERO
+============================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <div class="hero-badge">
+            ● Machine Learning Powered Vehicle Intelligence
+        </div>
+
+
+        <h1>
+
+            Know the value.<br>
+
+            <span>
+                Choose smarter.
+            </span>
+
+        </h1>
+
+
+        <p class="hero-description">
+
+            Predict the resale value of a used vehicle and discover
+            comparable listings and alternative vehicles through
+            machine-learning powered analysis.
+
+        </p>
+
+
+        <a
+            href="#valuation"
+            class="hero-button"
+        >
+
+            Start Vehicle Analysis
+
+            <span>
+                →
+            </span>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- ==============================================================
+     MODEL STATISTICS
+============================================================== -->
+
+<div class="stats-wrapper">
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                Random Forest
+            </div>
+
+            <div class="stat-label">
+                Selected Prediction Model
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                6,900+
+            </div>
+
+            <div class="stat-label">
+                Vehicle Records Analysed
+            </div>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                0.851
+            </div>
+
+            <div class="stat-label">
+                Model R² Score
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- ==============================================================
+     MAIN
+============================================================== -->
+
+<main class="container">
+
+
+
+<!-- ==============================================================
+     VEHICLE CONFIGURATOR
+============================================================== -->
+
+<section id="valuation">
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Vehicle Valuation
+        </div>
+
+        <h2>
+            Tell us about the vehicle
+        </h2>
+
+        <p>
+            Complete three quick steps. ValuDrive will estimate
+            the vehicle's resale value and identify relevant
+            comparable vehicles.
+        </p>
+
+    </div>
+
+
+
+    <div class="configurator">
+
+
+        <!-- PROGRESS -->
+
+        <div class="progress-area">
+
+            <div class="progress-steps">
+
+
+                <div
+                    class="progress-item active"
+                    id="progress1"
+                >
+
+                    <div class="progress-circle">
+                        1
+                    </div>
+
+                    <span>
+                        Vehicle
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="progress-line"
+                    id="line1"
+                ></div>
+
+
+                <div
+                    class="progress-item"
+                    id="progress2"
+                >
+
+                    <div class="progress-circle">
+                        2
+                    </div>
+
+                    <span>
+                        Usage
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="progress-line"
+                    id="line2"
+                ></div>
+
+
+                <div
+                    class="progress-item"
+                    id="progress3"
+                >
+
+                    <div class="progress-circle">
+                        3
+                    </div>
+
+                    <span>
+                        Specifications
+                    </span>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- FORM -->
+
+        <form
+            action="/predict"
+            method="POST"
+            id="vehicleForm"
+        >
+
+
+            <div class="form-content">
+
+
+                <!-- ==================================================
+                     STEP 1
+                ================================================== -->
+
+                <div
+                    class="step active"
+                    id="step1"
+                >
+
+
+                    <div class="step-heading">
+
+                        <h3>
+                            Select your vehicle
+                        </h3>
+
+                        <p>
+                            Start with the basic identity of the vehicle.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="field">
+
+                            <label for="brand">
+                                Brand
+                            </label>
+
+
+                            <select
+                                id="brand"
+                                name="brand"
+                                onchange="updateModels()"
+                                required
+                            >
+
+                                <option value="">
+                                    Select vehicle brand
+                                </option>
+
+
+                                {% for brand in brands %}
+
+                                <option
+                                    value="{{ brand }}"
+                                    {% if selected_brand == brand %}
+                                    selected
+                                    {% endif %}
+                                >
+
+                                    {{ brand }}
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label for="model">
+                                Model
+                            </label>
+
+
+                            <select
+                                id="model"
+                                name="model"
+                                required
+                            >
+
+                                <option value="">
+                                    Select vehicle model
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label for="year">
+                                Manufacturing Year
+                            </label>
+
+
+                            <input
+                                type="number"
+                                id="year"
+                                name="year"
+                                min="1990"
+                                max="2030"
+                                placeholder="e.g. 2018"
+                                required
+                            >
+
+
+                            <small>
+                                Year the vehicle was manufactured
+                            </small>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+                        <div></div>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="nextStep(1)"
+                        >
+
+                            Continue →
+
+                        </button>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     STEP 2
+                ================================================== -->
+
+                <div
+                    class="step"
+                    id="step2"
+                >
+
+
+                    <div class="step-heading">
+
+                        <h3>
+                            Vehicle usage
+                        </h3>
+
+                        <p>
+                            Tell us about its usage, ownership
+                            and drivetrain.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="field">
+
+                            <label>
+                                Kilometres Driven
+                            </label>
+
+                            <input
+                                type="number"
+                                name="km_driven"
+                                min="0"
+                                placeholder="e.g. 45000"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Ownership
+                            </label>
+
+                            <select
+                                name="owner"
+                                required
+                            >
+
+                                <option value="">
+                                    Select ownership
+                                </option>
+
+                                {% for owner in owners %}
+
+                                <option value="{{ owner }}">
+                                    {{ owner }}
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Seller Type
+                            </label>
+
+                            <select
+                                name="seller_type"
+                                required
+                            >
+
+                                <option value="">
+                                    Select seller type
+                                </option>
+
+                                {% for seller in seller_types %}
+
+                                <option value="{{ seller }}">
+                                    {{ seller }}
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Fuel Type
+                            </label>
+
+                            <select
+                                name="fuel"
+                                required
+                            >
+
+                                <option value="">
+                                    Select fuel type
+                                </option>
+
+                                {% for fuel in fuels %}
+
+                                <option value="{{ fuel }}">
+                                    {{ fuel }}
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Transmission
+                            </label>
+
+                            <select
+                                name="transmission"
+                                required
+                            >
+
+                                <option value="">
+                                    Select transmission
+                                </option>
+
+                                {% for transmission in transmissions %}
+
+                                <option value="{{ transmission }}">
+                                    {{ transmission }}
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onclick="previousStep(2)"
+                        >
+
+                            ← Back
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="btn btn-primary"
+                            onclick="nextStep(2)"
+                        >
+
+                            Continue →
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- ==================================================
+                     STEP 3
+                ================================================== -->
+
+                <div
+                    class="step"
+                    id="step3"
+                >
+
+
+                    <div class="step-heading">
+
+                        <h3>
+                            Vehicle specifications
+                        </h3>
+
+                        <p>
+                            Enter the final technical details required
+                            by the prediction model.
+                        </p>
+
+                    </div>
+
+
+
+                    <div class="form-grid">
+
+
+                        <div class="field">
+
+                            <label>
+                                Mileage
+                            </label>
+
+                            <input
+                                type="number"
+                                step="0.1"
+                                min="0"
+                                name="mileage"
+                                placeholder="e.g. 21.4"
+                                required
+                            >
+
+                            <small>
+                                Mileage in km/l
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Engine Capacity
+                            </label>
+
+                            <input
+                                type="number"
+                                min="0"
+                                name="engine"
+                                placeholder="e.g. 1197"
+                                required
+                            >
+
+                            <small>
+                                Engine displacement in CC
+                            </small>
+
+                        </div>
+
+
+
+                        <div class="field">
+
+                            <label>
+                                Number of Seats
+                            </label>
+
+                            <input
+                                type="number"
+                                name="seats"
+                                min="2"
+                                max="15"
+                                placeholder="e.g. 5"
+                                required
+                            >
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <div class="form-actions">
+
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            onclick="previousStep(3)"
+                        >
+
+                            ← Back
+
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-predict"
+                        >
+
+                            Analyse Vehicle →
+
+                        </button>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </form>
+
+
+    </div>
+
+
+
+    {% if error %}
+
+    <div class="error">
+
+        <strong>
+            Unable to complete analysis.
+        </strong>
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+
+</section>
+
+
+
+<!-- ==============================================================
+     RESULTS
+============================================================== -->
+
+{% if prediction %}
+
+<section
+    class="results"
+    id="results"
+>
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Analysis Complete
+        </div>
+
+        <h2>
+            Your Vehicle Valuation
+        </h2>
+
+        <p>
+            The estimated resale value is generated from the trained
+            price-prediction model and then used as part of the
+            recommendation process.
+        </p>
+
+    </div>
+
+
+
+    <!-- ==========================================================
+         MAIN PREDICTION
+    ========================================================== -->
+
+    <div class="result-hero">
+
+
+        <div class="result-top">
+
+
+            <div>
+
+                <div class="result-tag">
+                    Vehicle Analysed
+                </div>
+
+                <div class="result-vehicle">
+
+                    {{ selected_brand }}
+                    {{ selected_model }}
+
+                </div>
+
+                <div class="result-spec">
+
+                    Machine-learning based used vehicle valuation
+
+                </div>
+
+            </div>
+
+
+
+            <div class="prediction-box">
+
+                <div class="prediction-label">
+                    Estimated Resale Value
+                </div>
+
+                <div class="prediction-price">
+                    {{ prediction }}
+                </div>
+
+                <div class="prediction-sub">
+                    Predicted using Random Forest Regression
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- MODEL DETAILS -->
+
+        <div class="vehicle-specs">
+
+
+            <div class="spec-box">
+
+                <div class="spec-value">
+                    Random Forest
+                </div>
+
+                <div class="spec-label">
+                    Prediction Model
+                </div>
+
+            </div>
+
+
+
+            <div class="spec-box">
+
+                <div class="spec-value">
+                    0.851
+                </div>
+
+                <div class="spec-label">
+                    R² Score
+                </div>
+
+            </div>
+
+
+
+            <div class="spec-box">
+
+                <div class="spec-value">
+                    ₹80,195
+                </div>
+
+                <div class="spec-label">
+                    Mean Absolute Error
+                </div>
+
+            </div>
+
+
+
+            <div class="spec-box">
+
+                <div class="spec-value">
+                    Hybrid
+                </div>
+
+                <div class="spec-label">
+                    Recommendation Method
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ==========================================================
+         MARKET POSITION
+    ========================================================== -->
+
+    {% if recommendations and recommendations.similar_listings %}
+
+
+    <div class="price-insight">
+
+
+        <div class="price-insight-left">
+
+
+            <div class="insight-icon">
+                ₹
+            </div>
+
+
+            <div>
+
+                <div class="insight-eyebrow">
+                    MARKET POSITION
+                </div>
+
+                <h3>
+                    How does this estimate compare?
+                </h3>
+
+                <p>
+
+                    Compare the predicted value against similar
+                    {{ selected_brand }}
+                    {{ selected_model }}
+                    listings available in the dataset.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="market-listings">
+
+
+            {% for car in recommendations.similar_listings %}
+
+
+            <div class="market-price">
+
+                <span>
+
+                    {{ car.year }}
+                    {{ car.name }}
+
+                </span>
+
+                <strong>
+                    ₹{{ "{:,}".format(car.price) }}
+                </strong>
+
+            </div>
+
+
+            {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+
+    <!-- ==========================================================
+         SIMILAR LISTINGS
+    ========================================================== -->
+
+    {% if recommendations and recommendations.similar_listings %}
+
+
+    <div
+        class="recommendation-section"
+        id="recommendations"
+    >
+
+
+        <div class="recommendation-header">
+
+            <h2>
+                Similar Listings
+            </h2>
+
+            <p>
+                Same brand and model with characteristics closest
+                to the vehicle you entered.
+            </p>
+
+        </div>
+
+
+
+        <div class="car-grid">
+
+
+        {% for car in recommendations.similar_listings %}
+
+
+            <article class="car-card">
+
+
+                <div class="car-card-top">
+
+
+                    <div class="vehicle-visual">
+
+                        <div class="vehicle-brand-small">
+                            {{ car.brand | upper }}
+                        </div>
+
+                        <div class="vehicle-silhouette">
+                            🚘
+                        </div>
+
+                        <div class="vehicle-model-small">
+                            {{ car.model }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="match-badge">
+
+                        {{ car.match_score }}/100 Match
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="car-card-body">
+
+
+                    <div class="car-name">
+                        {{ car.name }}
+                    </div>
+
+
+                    <div class="car-price">
+
+                        ₹{{ "{:,}".format(car.price) }}
+
+                    </div>
+
+
+
+                    <div class="car-details">
+
+
+                        <div class="car-detail">
+                            📅 {{ car.year }}
+                        </div>
+
+
+                        <div class="car-detail">
+
+                            🛣
+                            {{ "{:,}".format(car.km_driven) }}
+                            km
+
+                        </div>
+
+
+                        <div class="car-detail">
+                            ⛽ {{ car.fuel }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            ⚙ {{ car.transmission }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            🔧 {{ car.engine }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            👤 {{ car.owner }}
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- MATCH -->
+
+                    <div class="match-area">
+
+
+                        <div class="match-label">
+
+                            <span>
+                                Match Score
+                            </span>
+
+                            <span>
+                                {{ car.match_score }}/100
+                            </span>
+
+                        </div>
+
+
+                        <div class="match-track">
+
+                            <div
+                                class="match-fill"
+                                style="width: {{ car.match_score }}%;"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- EXPLANATION -->
+
+                        {% if car.reasons %}
+
+
+                        <div class="why-match">
+
+
+                            <div class="why-title">
+                                Why this match?
+                            </div>
+
+
+                            <div class="reason-list">
+
+
+                                {% for reason in car.reasons %}
+
+
+                                <span class="reason-chip">
+
+                                    ✓ {{ reason }}
+
+                                </span>
+
+
+                                {% endfor %}
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+
+    <!-- ==========================================================
+         ALTERNATIVE VEHICLES
+    ========================================================== -->
+
+    {% if recommendations and recommendations.alternative_vehicles %}
+
+
+    <div class="recommendation-section">
+
+
+        <div class="recommendation-header">
+
+            <h2>
+                You May Also Consider
+            </h2>
+
+            <p>
+                Alternative vehicles selected using comparable
+                pricing, specifications and usage characteristics.
+            </p>
+
+        </div>
+
+
+
+        <div class="car-grid">
+
+
+        {% for car in recommendations.alternative_vehicles %}
+
+
+            <article class="car-card">
+
+
+                <div class="car-card-top">
+
+
+                    <div class="vehicle-visual">
+
+                        <div class="vehicle-brand-small">
+                            {{ car.brand | upper }}
+                        </div>
+
+                        <div class="vehicle-silhouette">
+                            🚗
+                        </div>
+
+                        <div class="vehicle-model-small">
+                            {{ car.model }}
+                        </div>
+
+                    </div>
+
+
+                    <div class="match-badge">
+
+                        {{ car.match_score }}/100 Match
+
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="car-card-body">
+
+
+                    <div class="car-name">
+                        {{ car.name }}
+                    </div>
+
+
+                    <div class="car-price">
+
+                        ₹{{ "{:,}".format(car.price) }}
+
+                    </div>
+
+
+
+                    <div class="car-details">
+
+
+                        <div class="car-detail">
+                            📅 {{ car.year }}
+                        </div>
+
+
+                        <div class="car-detail">
+
+                            🛣
+                            {{ "{:,}".format(car.km_driven) }}
+                            km
+
+                        </div>
+
+
+                        <div class="car-detail">
+                            ⛽ {{ car.fuel }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            ⚙ {{ car.transmission }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            🔧 {{ car.engine }}
+                        </div>
+
+
+                        <div class="car-detail">
+                            💺 {{ car.seats }} seats
+                        </div>
+
+
+                    </div>
+
+
+
+                    <!-- MATCH -->
+
+                    <div class="match-area">
+
+
+                        <div class="match-label">
+
+                            <span>
+                                Match Score
+                            </span>
+
+                            <span>
+                                {{ car.match_score }}/100
+                            </span>
+
+                        </div>
+
+
+                        <div class="match-track">
+
+                            <div
+                                class="match-fill"
+                                style="width: {{ car.match_score }}%;"
+                            ></div>
+
+                        </div>
+
+
+
+                        <!-- EXPLANATION -->
+
+                        {% if car.reasons %}
+
+
+                        <div class="why-match">
+
+
+                            <div class="why-title">
+                                Why this match?
+                            </div>
+
+
+                            <div class="reason-list">
+
+
+                                {% for reason in car.reasons %}
+
+
+                                <span class="reason-chip">
+
+                                    ✓ {{ reason }}
+
+                                </span>
+
+
+                                {% endfor %}
+
+
+                            </div>
+
+
+                        </div>
+
+
+                        {% endif %}
+
+
+                    </div>
+
+
+                </div>
+
+
+            </article>
+
+
+        {% endfor %}
+
+
+        </div>
+
+
+    </div>
+
+
+    {% endif %}
+
+
+</section>
+
+
+{% endif %}
+
+
+
+<!-- ==============================================================
+     HOW IT WORKS
+============================================================== -->
+
+<section
+    class="how-section"
+    id="how-it-works"
+>
+
+
+    <div class="section-heading">
+
+        <div class="eyebrow">
+            Behind ValuDrive
+        </div>
+
+        <h2>
+            How the system works
+        </h2>
+
+        <p>
+            Price prediction and vehicle recommendation are combined
+            into one machine-learning decision-support system.
+        </p>
+
+    </div>
+
+
+
+    <div class="how-grid">
+
+
+        <div class="how-card">
+
+
+            <div class="how-number">
+                01
+            </div>
+
+
+            <div class="how-icon">
+                ◫
+            </div>
+
+
+            <h3>
+                Vehicle Data
+            </h3>
+
+
+            <p>
+                The system processes characteristics such as brand,
+                model, year, kilometres driven, fuel type,
+                transmission and technical specifications.
+            </p>
+
+
+        </div>
+
+
+
+        <div class="how-card">
+
+
+            <div class="how-number">
+                02
+            </div>
+
+
+            <div class="how-icon">
+                ◇
+            </div>
+
+
+            <h3>
+                Price Prediction
+            </h3>
+
+
+            <p>
+                Random Forest Regression uses patterns learned from
+                historical used-car records to estimate the expected
+                resale value.
+            </p>
+
+
+        </div>
+
+
+
+        <div class="how-card">
+
+
+            <div class="how-number">
+                03
+            </div>
+
+
+            <div class="how-icon">
+                ◎
+            </div>
+
+
+            <h3>
+                Smart Recommendations
+            </h3>
+
+
+            <p>
+                Weighted vehicle characteristics and cosine
+                similarity identify comparable listings and
+                suitable alternative vehicles.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+</main>
+
+
+
+<!-- ==============================================================
+     FOOTER
+============================================================== -->
+
+<footer>
+
+
+    <div>
+
+        <span class="footer-brand">
+            ValuDrive
+        </span>
+
+        — Intelligent Vehicle Valuation
+
+    </div>
+
+
+    <div>
+        Vehicle Price Prediction & Recommendation System
+    </div>
+
+
+</footer>
+
+
+
+<!-- ==============================================================
+     JAVASCRIPT
+============================================================== -->
+
+<script>
+
+
+    /* ============================================================
+       BRAND -> MODEL
+    ============================================================ */
+
+    const brandModels =
+        {{ brand_models | tojson }};
+
+
+    const selectedModel =
+        {{ selected_model | default("", true) | tojson }};
+
+
+
+    function updateModels() {
+
+
+        const brandSelect =
+            document.getElementById(
+                "brand"
+            );
+
+
+        const modelSelect =
+            document.getElementById(
+                "model"
+            );
+
+
+        const brand =
+            brandSelect.value;
+
+
+        modelSelect.innerHTML =
+            '<option value="">Select vehicle model</option>';
+
+
+
+        if (
+            brand
+            &&
+            brandModels[brand]
+        ) {
+
+
+            brandModels[brand].forEach(
+
+
+                function(model) {
+
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        model;
+
+
+                    option.textContent =
+                        model;
+
+
+
+                    if (
+                        model === selectedModel
+                    ) {
+
+                        option.selected =
+                            true;
+
+                    }
+
+
+                    modelSelect.appendChild(
+                        option
+                    );
+
+
+                }
+
+
+            );
+
+
+        }
+
+
+    }
+
+
+
+    /* ============================================================
+       VALIDATE CURRENT STEP
+    ============================================================ */
+
+    function validateStep(
+        stepNumber
+    ) {
+
+
+        const step =
+            document.getElementById(
+                "step" + stepNumber
+            );
+
+
+        const fields =
+            step.querySelectorAll(
+                "input[required], select[required]"
+            );
+
+
+
+        for (
+            const field of fields
+        ) {
+
+
+            if (
+                !field.checkValidity()
+            ) {
+
+                field.reportValidity();
+
+                return false;
+
+            }
+
+
+        }
+
+
+        return true;
+
+
+    }
+
+
+
+    /* ============================================================
+       NEXT STEP
+    ============================================================ */
+
+    function nextStep(
+        currentStep
+    ) {
+
+
+        if (
+            !validateStep(
+                currentStep
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        showStep(
+            currentStep + 1
+        );
+
+
+    }
+
+
+
+    /* ============================================================
+       PREVIOUS STEP
+    ============================================================ */
+
+    function previousStep(
+        currentStep
+    ) {
+
+
+        showStep(
+            currentStep - 1
+        );
+
+
+    }
+
+
+
+    /* ============================================================
+       SHOW STEP
+    ============================================================ */
+
+    function showStep(
+        stepNumber
+    ) {
+
+
+        document
+            .querySelectorAll(
+                ".step"
+            )
+            .forEach(
+
+
+                function(step) {
+
+
+                    step.classList.remove(
+                        "active"
+                    );
+
+
+                }
+
+
+            );
+
+
+
+        document
+            .getElementById(
+                "step" + stepNumber
+            )
+            .classList.add(
+                "active"
+            );
+
+
+
+        updateProgress(
+            stepNumber
+        );
+
+
+
+        document
+            .getElementById(
+                "valuation"
+            )
+            .scrollIntoView({
+
+                behavior:
+                    "smooth",
+
+                block:
+                    "start"
+
+            });
+
+
+    }
+
+
+
+    /* ============================================================
+       PROGRESS INDICATOR
+    ============================================================ */
+
+    function updateProgress(
+        currentStep
+    ) {
+
+
+        for (
+            let i = 1;
+            i <= 3;
+            i++
+        ) {
+
+
+            const progress =
+                document.getElementById(
+                    "progress" + i
+                );
+
+
+            progress.classList.remove(
+                "active",
+                "completed"
+            );
+
+
+
+            if (
+                i < currentStep
+            ) {
+
+
+                progress.classList.add(
+                    "completed"
+                );
+
+
+                progress
+                    .querySelector(
+                        ".progress-circle"
+                    )
+                    .textContent =
+                        "✓";
+
+
+            }
+
+            else {
+
+
+                progress
+                    .querySelector(
+                        ".progress-circle"
+                    )
+                    .textContent =
+                        i;
+
+
+
+                if (
+                    i === currentStep
+                ) {
+
+
+                    progress.classList.add(
+                        "active"
+                    );
+
+
+                }
+
+
+            }
+
+
+        }
+
+
+
+        const line1 =
+            document.getElementById(
+                "line1"
+            );
+
+
+        const line2 =
+            document.getElementById(
+                "line2"
+            );
+
+
+
+        line1.classList.toggle(
+            "completed",
+            currentStep > 1
+        );
+
+
+        line2.classList.toggle(
+            "completed",
+            currentStep > 2
+        );
+
+
+    }
+
+
+
+    /* ============================================================
+       PAGE INITIALISATION
+    ============================================================ */
+
+    document.addEventListener(
+
+        "DOMContentLoaded",
+
+        function() {
+
+
+            updateModels();
+
+
+
+            {% if prediction %}
+
+
+            setTimeout(
+
+                function() {
+
+
+                    const results =
+                        document.getElementById(
+                            "results"
+                        );
+
+
+                    if (
+                        results
+                    ) {
+
+
+                        results.scrollIntoView({
+
+                            behavior:
+                                "smooth",
+
+                            block:
+                                "start"
+
+                        });
+
+
+                    }
+
+
+                },
+
+                250
+
+            );
+
+
+            {% endif %}
+
+
+        }
+
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

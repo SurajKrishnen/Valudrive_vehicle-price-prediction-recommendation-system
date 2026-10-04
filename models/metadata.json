@@ -1,0 +1,348 @@
+{
+    "brand": [
+        "Ambassador",
+        "Ashok",
+        "Audi",
+        "BMW",
+        "Chevrolet",
+        "Daewoo",
+        "Datsun",
+        "Fiat",
+        "Force",
+        "Ford",
+        "Honda",
+        "Hyundai",
+        "Isuzu",
+        "Jaguar",
+        "Jeep",
+        "Kia",
+        "Land",
+        "Lexus",
+        "MG",
+        "Mahindra",
+        "Maruti",
+        "Mercedes-Benz",
+        "Mitsubishi",
+        "Nissan",
+        "Opel",
+        "Peugeot",
+        "Renault",
+        "Skoda",
+        "Tata",
+        "Toyota",
+        "Volkswagen",
+        "Volvo"
+    ],
+    "brand_models": {
+        "Ambassador": [
+            "CLASSIC",
+            "Classic",
+            "Grand"
+        ],
+        "Ashok": [
+            "Leyland"
+        ],
+        "Audi": [
+            "A3",
+            "A4",
+            "A6",
+            "Q3",
+            "Q5",
+            "Q7"
+        ],
+        "BMW": [
+            "3",
+            "5",
+            "6",
+            "7",
+            "X1",
+            "X3",
+            "X4",
+            "X5",
+            "X6",
+            "X7"
+        ],
+        "Chevrolet": [
+            "Aveo",
+            "Beat",
+            "Captiva",
+            "Cruze",
+            "Enjoy",
+            "Optra",
+            "Sail",
+            "Spark",
+            "Tavera",
+            "Trailblazer"
+        ],
+        "Daewoo": [
+            "Matiz"
+        ],
+        "Datsun": [
+            "GO",
+            "RediGO"
+        ],
+        "Fiat": [
+            "Avventura",
+            "Grande",
+            "Linea",
+            "Palio",
+            "Punto"
+        ],
+        "Force": [
+            "Gurkha",
+            "One"
+        ],
+        "Ford": [
+            "Aspire",
+            "Classic",
+            "EcoSport",
+            "Ecosport",
+            "Endeavour",
+            "Fiesta",
+            "Figo",
+            "Freestyle",
+            "Fusion",
+            "Ikon"
+        ],
+        "Honda": [
+            "Accord",
+            "Amaze",
+            "BR-V",
+            "BRV",
+            "Brio",
+            "CR-V",
+            "City",
+            "Civic",
+            "Jazz",
+            "Mobilio",
+            "WR-V"
+        ],
+        "Hyundai": [
+            "Accent",
+            "Creta",
+            "EON",
+            "Elantra",
+            "Elite",
+            "Getz",
+            "Grand",
+            "Santa",
+            "Santro",
+            "Sonata",
+            "Tucson",
+            "Venue",
+            "Verna",
+            "Xcent",
+            "i10",
+            "i20"
+        ],
+        "Isuzu": [
+            "D-Max",
+            "MU",
+            "MUX"
+        ],
+        "Jaguar": [
+            "XE",
+            "XF"
+        ],
+        "Jeep": [
+            "Compass",
+            "Wrangler"
+        ],
+        "Kia": [
+            "Seltos"
+        ],
+        "Land": [
+            "Rover"
+        ],
+        "Lexus": [
+            "ES"
+        ],
+        "MG": [
+            "Hector"
+        ],
+        "Mahindra": [
+            "Bolero",
+            "Ingenio",
+            "Jeep",
+            "KUV",
+            "Logan",
+            "Marazzo",
+            "Marshal",
+            "NuvoSport",
+            "Quanto",
+            "Renault",
+            "Scorpio",
+            "Ssangyong",
+            "Supro",
+            "TUV",
+            "Thar",
+            "Verito",
+            "Willys",
+            "XUV300",
+            "XUV500",
+            "Xylo"
+        ],
+        "Maruti": [
+            "800",
+            "A-Star",
+            "Alto",
+            "Baleno",
+            "Celerio",
+            "Ciaz",
+            "Dzire",
+            "Eeco",
+            "Ertiga",
+            "Esteem",
+            "Estilo",
+            "Gypsy",
+            "Ignis",
+            "Omni",
+            "Ritz",
+            "S-Cross",
+            "S-Presso",
+            "SX4",
+            "Swift",
+            "Vitara",
+            "Wagon",
+            "XL6",
+            "Zen"
+        ],
+        "Mercedes-Benz": [
+            "B",
+            "CLA",
+            "E-Class",
+            "GL-Class",
+            "GLA",
+            "GLC",
+            "M-Class",
+            "New",
+            "S-Class"
+        ],
+        "Mitsubishi": [
+            "Lancer",
+            "Pajero"
+        ],
+        "Nissan": [
+            "Kicks",
+            "Micra",
+            "Sunny",
+            "Teana",
+            "Terrano"
+        ],
+        "Opel": [
+            "Astra"
+        ],
+        "Peugeot": [
+            "309"
+        ],
+        "Renault": [
+            "Captur",
+            "Duster",
+            "Fluence",
+            "KWID",
+            "Koleos",
+            "Lodgy",
+            "Pulse",
+            "Scala",
+            "Triber"
+        ],
+        "Skoda": [
+            "Fabia",
+            "Kodiaq",
+            "Laura",
+            "Octavia",
+            "Rapid",
+            "Superb",
+            "Yeti"
+        ],
+        "Tata": [
+            "Aria",
+            "Bolt",
+            "Estate",
+            "Harrier",
+            "Hexa",
+            "Indica",
+            "Indigo",
+            "Manza",
+            "Nano",
+            "New",
+            "Nexon",
+            "Safari",
+            "Spacio",
+            "Sumo",
+            "Tiago",
+            "Tigor",
+            "Venture",
+            "Winger",
+            "Xenon",
+            "Zest"
+        ],
+        "Toyota": [
+            "Camry",
+            "Corolla",
+            "Etios",
+            "Fortuner",
+            "Glanza",
+            "Innova",
+            "Land",
+            "Platinum",
+            "Premio",
+            "Qualis",
+            "Yaris"
+        ],
+        "Volkswagen": [
+            "Ameo",
+            "CrossPolo",
+            "GTI",
+            "Jetta",
+            "Multivan",
+            "Passat",
+            "Polo",
+            "Vento"
+        ],
+        "Volvo": [
+            "S60",
+            "S90",
+            "V40",
+            "XC40",
+            "XC60",
+            "XC90"
+        ]
+    },
+    "fuel": [
+        "CNG",
+        "Diesel",
+        "LPG",
+        "Petrol"
+    ],
+    "seller_type": [
+        "Dealer",
+        "Individual",
+        "Trustmark Dealer"
+    ],
+    "transmission": [
+        "Automatic",
+        "Manual"
+    ],
+    "owner": [
+        "First Owner",
+        "Fourth & Above Owner",
+        "Second Owner",
+        "Test Drive Car",
+        "Third Owner"
+    ],
+    "features": [
+        "brand",
+        "model",
+        "year",
+        "km_driven",
+        "fuel",
+        "seller_type",
+        "transmission",
+        "owner",
+        "mileage_num",
+        "engine_num",
+        "seats"
+    ],
+    "best_model": "Random Forest"
+}
